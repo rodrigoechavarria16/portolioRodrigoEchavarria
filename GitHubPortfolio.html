@@ -18,17 +18,34 @@
   --si-teal:#009999; --si-teal-bg:#e0f4f4; --si-dark:#000028; --si-mid:#00646e;
   --sans:'Google Sans','Inter',-apple-system,BlinkMacSystemFont,sans-serif;
 }
+
+:root[data-theme="dark"] {
+  --bg:#0f0f0f; --surface:#1a1a1a; --surface2:#252525;
+  --border:rgba(255,255,255,0.08); --text:#f5f5f7; --muted:#8d8d91; --hint:#656569;
+  --g-blue-bg:#1a2a52; --g-red-bg:#421a1a; --g-yellow-bg:#4a3900; --g-green-bg:#1a3a1f;
+  --ms-blue-bg:#0d1f3d; --ms-gray:#2a2a2a;
+  --si-teal-bg:#0d3a3a;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;}
 
 nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;background:rgba(245,245,247,0.82);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:0.5px solid var(--border);}
+html[data-theme="dark"] nav{background:rgba(15,15,15,0.82);}
 .nav-brand{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--text);}
 .brand-dots{display:flex;gap:3px;align-items:center;}
 .brand-dots span{width:7px;height:7px;border-radius:50%;display:block;}
-.nav-links{display:flex;list-style:none;}
+.nav-links{display:flex;list-style:none;gap:1rem;align-items:center;}
 .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;padding:.35rem .85rem;border-radius:20px;transition:background .18s,color .18s;}
 .nav-links a:hover{background:rgba(0,0,0,0.05);color:var(--text);}
+html[data-theme="dark"] .nav-links a:hover{background:rgba(255,255,255,0.08);}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle{background:var(--surface);border:0.5px solid var(--border);border-radius:20px;width:40px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .18s,border-color .18s;padding:0;margin-left:auto;font-size:14px;flex-shrink:0;}
+.theme-toggle:hover{background:var(--surface2);border-color:var(--muted);}
+.theme-toggle svg{width:16px;height:16px;color:var(--text);transition:transform .3s;}
+.theme-toggle:active svg{transform:rotate(180deg);}
+
 
 .ms-commandbar{height:3px;background:linear-gradient(90deg,var(--ms-blue) 0%,var(--si-teal) 40%,var(--g-blue) 70%,var(--g-green) 100%);}
 .si-grid-bg{background-image:linear-gradient(rgba(0,153,153,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,153,153,.04) 1px,transparent 1px);background-size:32px 32px;}
@@ -37,29 +54,41 @@ section{max-width:1040px;margin:0 auto;padding:4rem 1.5rem;}
 
 .eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;padding:5px 15px;border-radius:20px;margin-bottom:1.2rem;}
 .ey-g{background:var(--g-blue-bg);color:#1a56c4;}
+html[data-theme="dark"] .ey-g{color:#6ba3ff;}
 .ey-ms{background:var(--ms-blue-bg);color:#005a9e;}
+html[data-theme="dark"] .ey-ms{color:#6daaff;}
 .ey-si{background:var(--si-teal-bg);color:var(--si-mid);}
+html[data-theme="dark"] .ey-si{color:#66d9d9;}
 .ey-gr{background:var(--g-green-bg);color:#1a7a3c;}
+html[data-theme="dark"] .ey-gr{color:#81c995;}
 .ey-rd{background:var(--g-red-bg);color:#b31412;}
+html[data-theme="dark"] .ey-rd{color:#ff8a80;}
 .ey-yl{background:var(--g-yellow-bg);color:#8a6200;}
+html[data-theme="dark"] .ey-yl{color:#ffd54f;}
 
 h1{font-size:clamp(2.6rem,6vw,5rem);font-weight:600;letter-spacing:-.04em;line-height:1.05;margin-bottom:1.2rem;}
 .hero-sub{font-size:1.08rem;color:var(--muted);max-width:540px;margin-bottom:2rem;line-height:1.65;}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.2rem;}
 .chip{font-size:13px;font-weight:500;padding:6px 16px;border-radius:20px;border:1px solid var(--border);background:var(--surface);color:var(--muted);}
 .chip.blue{background:var(--g-blue-bg);color:#1a56c4;border-color:transparent;}
+html[data-theme="dark"] .chip.blue{color:#6ba3ff;}
 .chip.green{background:var(--g-green-bg);color:#1a7a3c;border-color:transparent;}
+html[data-theme="dark"] .chip.green{color:#81c995;}
 .chip.red{background:var(--g-red-bg);color:#b31412;border-color:transparent;}
+html[data-theme="dark"] .chip.red{color:#ff8a80;}
 .chip.yell{background:var(--g-yellow-bg);color:#8a6200;border-color:transparent;}
+html[data-theme="dark"] .chip.yell{color:#ffd54f;}
 .chip.ms{background:var(--ms-blue-bg);color:#005a9e;border-color:transparent;}
+html[data-theme="dark"] .chip.ms{color:#6daaff;}
 .chip.si{background:var(--si-teal-bg);color:var(--si-mid);border-color:transparent;}
+html[data-theme="dark"] .chip.si{color:#66d9d9;}
 
 .actions{display:flex;gap:10px;flex-wrap:wrap;}
 .btn{font-family:var(--sans);font-size:14px;font-weight:500;padding:10px 22px;border-radius:4px;text-decoration:none;border:none;cursor:pointer;transition:opacity .18s,transform .15s;}
 .btn:hover{opacity:.88;transform:scale(.985);}
 .btn-ms{background:var(--ms-blue);color:#fff;border-radius:4px;}
 .btn-si{background:var(--si-teal);color:#fff;border-radius:4px;}
-.btn-ghost{background:var(--surface);color:var(--text);border:0.5px solid rgba(0,0,0,.12);border-radius:22px;}
+.btn-ghost{background:var(--surface);color:var(--text);border:0.5px solid var(--border);border-radius:22px;}
 
 h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-.03em;margin-bottom:2rem;line-height:1.15;}
 
@@ -73,23 +102,26 @@ h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-.03em;marg
 .exp-row{background:var(--surface);padding:1.5rem 1.75rem;border:0.5px solid var(--border);display:grid;grid-template-columns:130px 1fr;gap:1.5rem;border-left:3px solid transparent;transition:border-left-color .2s,background .15s;}
 .exp-row:first-child{border-radius:var(--r-sm) var(--r-sm) 0 0;}
 .exp-row:last-child{border-radius:0 0 var(--r-sm) var(--r-sm);}
-.exp-row:hover{background:#fafafa;border-left-color:var(--si-teal);}
+.exp-row:hover{background:var(--surface2);border-left-color:var(--si-teal);}
 .pill{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:3px;font-size:11px;font-weight:600;white-space:nowrap;align-self:start;margin-top:3px;}
+html[data-theme="dark"] .pill{filter:brightness(1.3) saturate(0.9);}
 .exp-role{font-size:15px;font-weight:600;letter-spacing:-.2px;margin-bottom:3px;}
 .exp-co{font-size:13px;color:var(--muted);margin-bottom:.65rem;}
 .exp-desc{font-size:13.5px;color:var(--muted);line-height:1.65;}
 
-/* ── PROJECT CARDS ── */
+/* PROJECT CARDS */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;}
 .proj-card{background:var(--surface);border-radius:var(--r-lg);border:0.5px solid var(--border);overflow:hidden;transition:transform .2s,box-shadow .2s;}
-.proj-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(0,0,0,.09);}
+.proj-card:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(0,0,0,.1);}
+html[data-theme="dark"] .proj-card:hover{box-shadow:0 10px 36px rgba(255,255,255,.08);}
 .proj-bar{height:5px;}
 .proj-body{padding:1.4rem;}
-.proj-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:3px;margin-bottom:.8rem;display:inline-block;}
+.proj-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:3px;margin-bottom:.8rem;display:inline-block;color:var(--text);}
+html[data-theme="dark"] .proj-tag{color:#ffffff;}
 .proj-title{font-size:15px;font-weight:600;letter-spacing:-.2px;color:var(--text);margin-bottom:.5rem;line-height:1.35;}
 .proj-desc{font-size:13px;color:var(--muted);line-height:1.65;}
 
-/* ── MEDIA: real image/video containers ── */
+/* MEDIA: real image/video containers */
 .media-img{
   width:100%;border-radius:10px;margin-top:1rem;
   object-fit:cover;height:160px;display:block;
@@ -100,7 +132,7 @@ h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-.03em;marg
 .media-grid img{width:100%;border-radius:8px;object-fit:cover;height:110px;cursor:pointer;transition:transform .2s;}
 .media-grid img:hover{transform:scale(1.03);}
 .media-video{width:100%;border-radius:10px;margin-top:1rem;display:block;max-height:200px;}
-.media-box{background:var(--bg);border-radius:var(--r-sm);height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;margin-top:1rem;border:1.5px dashed rgba(0,0,0,.1);cursor:pointer;transition:border-color .2s;}
+.media-box{background:var(--bg);border-radius:var(--r-sm);height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;margin-top:1rem;border:1.5px dashed var(--border);cursor:pointer;transition:border-color .2s;}
 .media-box:hover{border-color:var(--si-teal);}
 .media-plus{width:30px;height:30px;border-radius:50%;background:var(--si-teal-bg);display:flex;align-items:center;justify-content:center;color:var(--si-teal);font-size:18px;font-weight:300;}
 .media-label{font-size:11.5px;color:var(--hint);font-weight:500;}
@@ -112,7 +144,7 @@ h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-.03em;marg
 #lightbox-close{position:fixed;top:1.25rem;right:1.5rem;font-size:28px;color:#fff;cursor:pointer;background:none;border:none;line-height:1;opacity:.7;}
 #lightbox-close:hover{opacity:1;}
 
-/* ── SKILLS SPHERE ── */
+/* SKILLS SPHERE */
 #sphere-wrap{position:relative;width:100%;height:520px;display:flex;align-items:center;justify-content:center;cursor:grab;user-select:none;}
 #sphere-wrap:active{cursor:grabbing;}
 #sphere-canvas{display:block;width:100%;height:100%;}
@@ -124,7 +156,7 @@ h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-.03em;marg
 .leg-item.active{background:var(--text);color:var(--surface);border-color:transparent;}
 .leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
 
-/* ── CERTS ── */
+/* CERTS */
 .cert-list{display:flex;flex-direction:column;}
 .cert-row{display:flex;align-items:center;gap:1rem;padding:.9rem 1rem;border-bottom:0.5px solid var(--border);transition:background .15s;}
 .cert-row:first-child{border-radius:var(--r-sm) var(--r-sm) 0 0;}
@@ -134,7 +166,7 @@ h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-.03em;marg
 .cert-year{font-size:11px;font-weight:600;padding:3px 10px;border-radius:3px;white-space:nowrap;min-width:48px;text-align:center;}
 .cert-name{font-size:14px;color:var(--text);}
 
-/* ── LANGUAGES ── */
+/* LANGUAGES */
 .lang-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
 .lang-card{background:var(--surface);border-radius:var(--r-md);border:0.5px solid var(--border);padding:1.5rem;text-align:center;}
 .lang-name{font-size:16px;font-weight:600;margin-bottom:4px;}
@@ -142,21 +174,23 @@ h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:600;letter-spacing:-.03em;marg
 .lang-bar{height:4px;background:var(--bg);border-radius:4px;overflow:hidden;}
 .lang-fill{height:100%;border-radius:4px;}
 
-/* ── CONTACT ── */
+/* CONTACT */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;}
 .contact-card{background:var(--surface);border-radius:var(--r-md);border:0.5px solid var(--border);padding:1.25rem 1.4rem;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:transform .15s,box-shadow .15s;}
-.contact-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.07);}
+.contact-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08);}
+html[data-theme="dark"] .contact-card:hover{box-shadow:0 6px 20px rgba(255,255,255,.06);}
 .contact-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;font-size:16px;}
 .contact-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--hint);}
 .contact-val{font-size:13px;font-weight:500;color:var(--text);word-break:break-all;}
 
-/* ── FOOTER ── */
+/* FOOTER */
 footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);border-top:0.5px solid var(--border);}
 .brand-strip{display:flex;justify-content:center;align-items:center;gap:0;margin-bottom:1.2rem;overflow:hidden;border-radius:6px;}
 .brand-strip div{height:4px;flex:1;}
 .si-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--si-mid);background:var(--si-teal-bg);padding:4px 12px;border-radius:3px;border-left:3px solid var(--si-teal);margin-bottom:1.2rem;}
+html[data-theme="dark"] .si-badge{color:#66d9d9;}
 
-/* ── ANIMATIONS ── */
+/* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 .fu{opacity:0;animation:fadeUp .6s ease forwards;}
 .d1{animation-delay:.06s;}.d2{animation-delay:.16s;}.d3{animation-delay:.28s;}.d4{animation-delay:.4s;}
@@ -178,7 +212,9 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);bo
 
 @media(max-width:600px){
   nav{padding:0 1rem;}
-  .nav-links{display:none;}
+  .nav-links{display:flex;gap:0.5rem;}
+  .nav-links a{padding:.2rem .5rem;font-size:12px;}
+  .theme-toggle{width:36px;height:26px;font-size:12px;}
   .exp-row{grid-template-columns:1fr;}
   .lang-row{grid-template-columns:1fr;}
   .media-grid{grid-template-columns:1fr;}
@@ -213,6 +249,7 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);bo
     <li><a href="#skills">Skills</a></li>
     <li><a href="#certifications">Certs</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">☀️</button></li>
   </ul>
 </nav>
 
@@ -222,13 +259,14 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);bo
   <h1 class="fu d1">Rodrigo<br/>Echavarría</h1>
   <p class="hero-sub fu d2">Building intelligent systems at the intersection of hardware, software, and cybersecurity. Currently at Honeywell HTCS — where industrial meets digital.</p>
   <div class="chips fu d3">
+    <span class="chip red">Autonomous Systems</span>
+    <span class="chip red">Aerospace Engineering</span>
     <span class="chip si">Cybersecurity</span>
-    <span class="chip si">Cyberphysical Systems</span>
-    <span class="chip red">Robotics</span>
-    <span class="chip yell">Automation</span>
-    <span class="chip ms">Machine Learning</span>
-    <span class="chip blue">Software Development</span>
+    <span class="chip si">Cyber-Physical Systems</span>
     <span class="chip green">Embedded Systems</span>
+    <span class="chip yell">Industrial Automation</span>
+    <span class="chip ms">Machine Learning</span>
+    <span class="chip blue">Smart Manufacturing</span>
   </div>
   <div class="actions fu d4">
     <a href="#projects" class="btn btn-ms">View projects</a>
@@ -251,7 +289,8 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);bo
       <div>
         <div class="exp-role">Cybersecurity Advocate</div>
         <div class="exp-co">Honeywell HTCS</div>
-        <div class="exp-desc">Promoting cybersecurity culture and OT/IT security best practices in industrial cyber-physical environments, aligned with industry compliance standards.</div>
+        <div class="exp-desc">Responsible of ensuring Secure Software Development Lifecycle (SSLDC) activities are performed in compliance with Honeywell and SBG policies, standards, processes, and procedures within the product release.</div>
+        <img class="media-img" src="MediaFiles/Honeywell.jpg" alt="Honeywell HTCS" onclick="openLightbox(this.src)"/>
       </div>
     </div>
     <div class="exp-row" data-cat="academic">
@@ -263,7 +302,7 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);bo
         <!-- MediaFiles: Dashboard + HMI screenshots -->
         <div class="media-grid">
           <img src="MediaFiles/DashboardDigitaltwin.png" alt="Digital Twin Dashboard" onclick="openLightbox(this.src)"/>
-          <img src="MediaFiles/HMI_Digitaltwin.png" alt="HMI Digital Twin Interface" onclick="openLightbox(this.src)"/>
+          <img src="MediaFiles/IsometricViewPlant.png" alt="Digital Twin Plant Simulation" onclick="openLightbox(this.src)"/>
         </div>
       </div>
     </div>
@@ -316,7 +355,7 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);bo
   <h2 class="reveal">What I've built</h2>
   <div class="proj-grid stagger">
 
-    <!-- Pick-and-Place Robot → Object_detection.png -->
+    <!-- Pick-and-Place Robot -->
     <div class="proj-card">
       <div class="proj-bar" style="background:var(--g-red);"></div>
       <div class="proj-body">
@@ -327,7 +366,7 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);bo
       </div>
     </div>
 
-    <!-- Siemens Digital Twin → Dashboard + HMI -->
+    <!-- Siemens Digital Twin -->
     <div class="proj-card">
       <div class="proj-bar" style="background:var(--si-teal);"></div>
       <div class="proj-body">
@@ -335,24 +374,27 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);bo
         <div class="proj-title">Cyber-Physical Warehouse + Digital Twin</div>
         <div class="proj-desc">Live warehouse integrated with a Siemens digital twin for synchronized real-time monitoring and process optimization.</div>
         <div class="media-grid">
-          <img src="MediaFiles/DashboardDigitaltwin.png" alt="Digital Twin Dashboard" onclick="openLightbox(this.src)"/>
-          <img src="MediaFiles/HMI_Digitaltwin.png" alt="HMI Interface" onclick="openLightbox(this.src)"/>
+          <img src="MediaFiles/DashboardInsightsHub.jpg" alt="Dashboard Insights Hub" onclick="openLightbox(this.src)"/>
+          <img src="MediaFiles/NodeRedConnections.png" alt="Node-Red Connections" onclick="openLightbox(this.src)"/>
         </div>
       </div>
     </div>
 
-    <!-- Ford Digital Twin → DashboardDigitaltwin -->
+    <!-- Ford Digital Twin -->
     <div class="proj-card">
       <div class="proj-bar" style="background:var(--ms-blue);"></div>
       <div class="proj-body">
         <span class="proj-tag" style="background:var(--ms-blue-bg);color:#005a9e;">Ford · Manufacturing</span>
         <div class="proj-title">Autonomous Manufacturing Digital Twin</div>
         <div class="proj-desc">Full digital twin design for an autonomous Ford manufacturing system with predictive analytics and remote monitoring.</div>
-        <img class="media-img" src="MediaFiles/DashboardDigitaltwin.png" alt="Manufacturing Digital Twin dashboard" onclick="openLightbox(this.src)"/>
+        <div class="media-grid">
+          <img src="MediaFiles/VIN_Analysis.png" alt="VIN Analysis" onclick="openLightbox(this.src)"/>
+          <img src="MediaFiles/MainHMI.png" alt="Main HMI Interface" onclick="openLightbox(this.src)"/>
+        </div>
       </div>
     </div>
 
-    <!-- AGV Unloading Station → AGV.jpg + AGV_Demo.mp4 -->
+    <!-- AGV Unloading Station -->
     <div class="proj-card">
       <div class="proj-bar" style="background:var(--g-yellow);"></div>
       <div class="proj-body">
@@ -364,25 +406,27 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);bo
       </div>
     </div>
 
-    <!-- Rowing Machine → RowM_Demo.mp4 -->
+    <!-- Rowing Machine -->
     <div class="proj-card">
       <div class="proj-bar" style="background:#8b5cf6;"></div>
       <div class="proj-body">
         <span class="proj-tag" style="background:#ede9fe;color:#5b21b6;">Mechanical Design</span>
         <div class="proj-title">Functional Air Rowing Machine</div>
         <div class="proj-desc">Full development cycle — concept to prototype — of a functional air rowing machine including CAD design, component selection, and assembly.</div>
+        <img class="media-img" src="MediaFiles/RowingMachine.jpg" alt="Rowing machine" onclick="openLightbox(this.src)"/>
         <video class="media-video" src="MediaFiles/RowM_Demo.mp4" controls muted playsinline></video>
       </div>
     </div>
 
-    <!-- Electratón / SAIA → SAIA.jpg -->
+    <!-- Electratón / SAIA -->
     <div class="proj-card">
       <div class="proj-bar" style="background:var(--g-green);"></div>
       <div class="proj-body">
-        <span class="proj-tag" style="background:var(--g-green-bg);color:#1a7a3c;">Team · SAIA · Formula E</span>
-        <div class="proj-title">Electratón CCM — Electric Race Car &amp; SAIA</div>
-        <div class="proj-desc">Member of the student electric race car team and the Aeronautical Engineering Student Society — electrical systems, integration, and competition preparation.</div>
+        <span class="proj-tag" style="background:var(--g-green-bg);color:#1a7a3c;">Team · SAIA & Electratón CCM</span>
+        <div class="proj-title">Aeronautics &amp; Electric Vehicle Systems</div>
+        <div class="proj-desc">Member of the Aeronautical Engineering Student Society (SAIA) and the university’s electric race car team. Contributed to systems integration, electrical design, and testing, applying engineering principles to both aeronautical projects and electric vehicles.</div>
         <img class="media-img" src="MediaFiles/SAIA.jpg" alt="SAIA aeronautical student society" onclick="openLightbox(this.src)"/>
+        <video class="media-video" src="MediaFiles/SAIA_Airplane.mp4" alt="SAIA airplane design" controls muted playsinline></video>
       </div>
     </div>
 
@@ -412,6 +456,7 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);bo
   <div class="eyebrow ey-ms reveal">Credentials</div>
   <h2 class="reveal">Certifications</h2>
   <div class="cert-list stagger" style="background:var(--surface);border:0.5px solid var(--border);border-radius:var(--r-sm);padding:0 1rem;">
+    <div class="cert-row"><span class="cert-dot" style="background:var(--ms-blue);"></span><span class="cert-year" style="background:var(--ms-blue-bg);color:#005a9e;">2026</span><span class="cert-name">FIFA World Cup 2026 Mexico City - Volunteer Program</span></div>
     <div class="cert-row"><span class="cert-dot" style="background:var(--ms-blue);"></span><span class="cert-year" style="background:var(--ms-blue-bg);color:#005a9e;">2026</span><span class="cert-name">Microsoft Certified: Security, Compliance, and Identity Fundamentals</span></div>
     <div class="cert-row"><span class="cert-dot" style="background:var(--g-green);"></span><span class="cert-year" style="background:var(--g-green-bg);color:#1a7a3c;">2025</span><span class="cert-name">Software Security Practitioner — Architect</span></div>
     <div class="cert-row"><span class="cert-dot" style="background:var(--g-green);"></span><span class="cert-year" style="background:var(--g-green-bg);color:#1a7a3c;">2025</span><span class="cert-name">Lean Six Sigma White Belt</span></div>
@@ -477,7 +522,7 @@ footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);bo
 <div class="skill-tooltip" id="tooltip"></div>
 
 <script>
-/* ── LIGHTBOX ── */
+/* LIGHTBOX */
 function openLightbox(src){
   document.getElementById('lightbox-img').src = src;
   document.getElementById('lightbox').classList.add('open');
@@ -490,55 +535,97 @@ document.addEventListener('keydown', function(e){
 });
 </script>
 
+<script>
+/* THEME TOGGLE */
+(function(){
+  var themeToggle = document.getElementById('theme-toggle');
+  var root = document.documentElement;
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  
+  function setTheme(isDark) {
+    if (isDark) {
+      root.setAttribute('data-theme', 'dark');
+      themeToggle.textContent = '🌙';
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.removeAttribute('data-theme');
+      themeToggle.textContent = '☀️';
+      localStorage.setItem('theme', 'light');
+    }
+  }
+  
+  function initTheme() {
+    var savedTheme = localStorage.getItem('theme');
+    var isDark = savedTheme ? savedTheme === 'dark' : prefersDark.matches;
+    setTheme(isDark);
+  }
+  
+  initTheme();
+  
+  themeToggle.addEventListener('click', function() {
+    var currentTheme = root.getAttribute('data-theme');
+    setTheme(!currentTheme || currentTheme !== 'dark');
+  });
+  
+  prefersDark.addEventListener('change', function() {
+    if (!localStorage.getItem('theme')) {
+      setTheme(prefersDark.matches);
+    }
+  });
+})();
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function(){
   var skills = [
-    /* Programming – blue */
+    /* Programming */
     { label:'Python',       cat:'prog',  color:'#4285F4', bg:'#4285F4',
       logoUrl:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
     { label:'C++',          cat:'prog',  color:'#4285F4', bg:'#4285F4',
       logoUrl:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg' },
     { label:'MATLAB',       cat:'prog',  color:'#4285F4', bg:'#4285F4',
       logoUrl:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg' },
-    { label:'GitHub',       cat:'prog',  color:'#4285F4', bg:'#24292e',
+    { label:'GitHub',       cat:'prog',  color:'#4285F4', bg:'#4285F4',
       logoUrl:'https://cdn-icons-png.flaticon.com/256/25/25231.png' },
     { label:'GitHub Actions',cat:'prog', color:'#4285F4', bg:'#2088FF',
       logoUrl:'https://github.gallerycdn.vsassets.io/extensions/github/vscode-github-actions/0.31.0/1769723054158/Microsoft.VisualStudio.Services.Icons.Default' },
+    { label:'Jenkins',       cat:'prog',  color:'#4285F4', bg:'#4285F4',
+      logoUrl:'https://cdn.iconscout.com/icon/free/png-256/free-jenkins-icon-svg-download-png-282385.png' },
 
-    /* Low-code – Microsoft blue */
+    /* Low-code */
     { label:'Mendix',       cat:'low',   color:'#0078D4', bg:'#0595DB',
       logoUrl:'https://upload.wikimedia.org/wikipedia/commons/b/bb/Mendix_logo.svg' },
     { label:'Canva',   cat:'low',   color:'#0078D4', bg:'#0078D4',
       logoUrl:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg' },
 
-    /* CAD & Design – Siemens teal */
-    { label:'SolidWorks',   cat:'cad',   color:'#009999', bg:'#DC3545',
+    /* CAD & Design */
+    { label:'SolidWorks',   cat:'cad',   color:'#009999', bg:'#FFFFFF',
       logoUrl:'https://media.printables.com/media/prints/890675/images/6819389_4171d848-7733-4b3e-bf27-5dcdb58e4471_5b2ff70f-3497-486c-9527-712f796d6ddf/thumbs/inside/1280x960/jpg/sw-logo.webp' },
-    { label:'AutoCAD',      cat:'cad',   color:'#009999', bg:'#E51837',
+    { label:'AutoCAD',      cat:'cad',   color:'#009999', bg:'#FFFFFF',
       logoUrl:'https://techbagfrontend.s3-ap-south-1.amazonaws.com/logos/h79P9rY7kFE37zdt16eAM2.png' },
-    { label:'Fusion 360',   cat:'cad',   color:'#009999', bg:'#F5801C',
+    { label:'Fusion 360',   cat:'cad',   color:'#009999', bg:'#FFFFFF',
       logoUrl:'https://play-lh.googleusercontent.com/39WfD6TIa8JBI5ZRvb6ZPstZR9YfucLtm5nwWJyx-Elg9TA-9KA5u4mmo26t2B2xfQ' },
-    { label:'PTC Creo',     cat:'cad',   color:'#009999', bg:'#007DC5',
+    { label:'PTC Creo',     cat:'cad',   color:'#009999', bg:'#FFFFFF',
       logoUrl:'https://upload.wikimedia.org/wikipedia/commons/d/df/PTC_Creo_logo.svg' },
 
-    /* Automation & Control – green */
+    /* Automation & Control */
     { label:'TIA Portal',   cat:'auto',  color:'#34A853', bg:'#009999',
       logoUrl:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJu3KyMg0Bjmn1aPGSbff6Rt2JXnLqpvVTkA&s' },
-    { label:'Studio 5000',  cat:'auto',  color:'#34A853', bg:'#CC0000',
+    { label:'Studio 5000',  cat:'auto',  color:'#34A853', bg:'#FFFFFF',
       logoUrl:'https://rockwellautomation.scene7.com/is/image/rockwellautomation/rockwellautomation-logo-16x9.2550.jpg' },
-    { label:'Digital Twin', cat:'auto',  color:'#34A853', bg:'#009999',
+    { label:'Digital Twin', cat:'auto',  color:'#34A853', bg:'#FFFFFF',
       logoUrl:'https://images.ctfassets.net/17si5cpawjzf/TBoWgYUPs26o40hLZAWO9/baeddb03d92c438a89c197a2aae6bdf5/siemens-logo-petrol-white-placeholder-og-1200x630.jpg' },
     { label:'AGV Systems',  cat:'auto',  color:'#34A853', bg:'#34A853',
-      logoUrl:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/raspberrypi/raspberrypi-original.svg' },
+      logoUrl:'https://cdn-icons-png.flaticon.com/512/10950/10950859.png' },
 
-    /* Cloud & DevOps – orange */
+    /* Cloud & DevOps */
     { label:'AWS',          cat:'cloud', color:'#FF9900', bg:'#232F3E',
       logoUrl:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
     { label:'Azure',        cat:'cloud', color:'#FF9900', bg:'#0078D4',
       logoUrl:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg' },
 
-    /* Methodologies – yellow */
+    /* Methodologies */
     { label:'Design Think', cat:'meth',  color:'#FBBC05', bg:'#E67E22',
       logoUrl:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg' },
     { label:'Agile · Scrum', cat:'meth',  color:'#FBBC05', bg:'#F1C40F',
@@ -550,11 +637,13 @@ document.addEventListener('keydown', function(e){
     { label:'JTBD / SMART', cat:'meth',  color:'#FBBC05', bg:'#2980B9',
       logoUrl:'https://humanfocus.co.uk/wp-content/uploads/What-Are-SMART-Goals.jpg' },
 
-    /* Cybersecurity – red */
+    /* Cybersecurity */
     { label:'Software Development Life Cycle',  cat:'cyber', color:'#EA4335', bg:'#EA4335',
       logoUrl:'https://cdn-icons-png.flaticon.com/512/3696/3696975.png' },
     { label:'PSJira',cat:'cyber',color:'#EA4335',bg:'#0078D4',
       logoUrl:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jira_Logo.svg/1280px-Jira_Logo.svg.png' },
+      { label:'SD Elements',  cat:'cyber', color:'#EA4335', bg:'#FFFFFF',
+      logoUrl:'https://www.securitycompass.com/wp-content/uploads/SD-Elements-1.jpg' },
     { label:'Black Duck',cat:'cyber',color:'#EA4335', bg:'#2C3E50',
       logoUrl:'https://avatars.githubusercontent.com/u/431461?s=200&v=4' },
     { label:'Threat Modeling', cat:'cyber', color:'#EA4335', bg:'#C0392B',
