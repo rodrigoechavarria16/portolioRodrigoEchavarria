@@ -1,7 +1,7 @@
 # 🤖 Rodrigo Echavarría Moreno — Portfolio
 
-**Mechatronics Engineer · Tec de Monterrey**
-**Live site:** `https://rodrigoechavarria16.github.io/portfolioRodrigoEchavarria/`
+**Mechatronics Engineer · Tec de Monterrey** ·
+**Live Site:** https://rodrigoechavarria16.github.io/portfolioRodrigoEchavarria/
 ---
 
 ## 👤 About me
