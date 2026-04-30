@@ -183,6 +183,49 @@ html[data-theme="dark"] .contact-card:hover{box-shadow:0 6px 20px rgba(255,255,2
 .contact-lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--hint);}
 .contact-val{font-size:13px;font-weight:500;color:var(--text);word-break:break-all;}
 
+/* ── COMING SOON ── */
+.coming-soon-row{
+  background:var(--surface);padding:1.5rem 1.75rem;
+  border:0.5px solid var(--border);
+  border-left:3px solid var(--si-teal);
+  display:grid;grid-template-columns:130px 1fr;gap:1.5rem;
+  border-radius:0 0 var(--r-sm) var(--r-sm);
+  position:relative;overflow:hidden;
+}
+.coming-soon-row::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(-45deg,transparent,transparent 8px,rgba(0,153,153,.03) 8px,rgba(0,153,153,.03) 16px);
+  pointer-events:none;
+}
+html[data-theme="dark"] .coming-soon-row::before{
+  background:repeating-linear-gradient(-45deg,transparent,transparent 8px,rgba(0,153,153,.07) 8px,rgba(0,153,153,.07) 16px);
+}
+.cs-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  height:24px;padding:0 10px;border-radius:3px;
+  font-size:11px;font-weight:700;white-space:nowrap;align-self:start;margin-top:3px;
+  background:var(--si-teal-bg);color:var(--si-teal);
+  border:1px solid var(--si-teal);letter-spacing:.04em;text-transform:uppercase;
+}
+html[data-theme="dark"] .cs-pill{color:#66d9d9;}
+.cs-dot{width:7px;height:7px;border-radius:50%;background:var(--si-teal);flex-shrink:0;animation:csPulse 1.6s ease-in-out infinite;}
+@keyframes csPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.75);}}
+.cs-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--si-teal);background:var(--si-teal-bg);
+  padding:3px 10px;border-radius:3px;border:1px dashed var(--si-teal);margin-bottom:.75rem;
+}
+html[data-theme="dark"] .cs-badge{color:#66d9d9;}
+.cs-desc{font-size:13.5px;color:var(--muted);line-height:1.65;font-style:italic;}
+.cs-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:.85rem;}
+.cs-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:3px;background:var(--si-teal-bg);color:var(--si-teal);border:0.5px solid rgba(0,153,153,.25);}
+html[data-theme="dark"] .cs-tag{color:#66d9d9;}
+.proj-card.cs-card{border:1.5px dashed var(--si-teal);background:linear-gradient(135deg,var(--surface) 55%,var(--si-teal-bg) 100%);position:relative;overflow:hidden;}
+html[data-theme="dark"] .proj-card.cs-card{background:linear-gradient(135deg,var(--surface) 55%,rgba(0,153,153,.12) 100%);}
+.proj-card.cs-card::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 10px,rgba(0,153,153,.03) 10px,rgba(0,153,153,.03) 20px);pointer-events:none;}
+
+
 /* FOOTER */
 footer{text-align:center;padding:2.5rem 1rem;font-size:13px;color:var(--hint);border-top:0.5px solid var(--border);}
 .brand-strip{display:flex;justify-content:center;align-items:center;gap:0;margin-bottom:1.2rem;overflow:hidden;border-radius:6px;}
@@ -264,9 +307,10 @@ html[data-theme="dark"] .si-badge{color:#66d9d9;}
     <span class="chip si">Cybersecurity</span>
     <span class="chip si">Cyber-Physical Systems</span>
     <span class="chip green">Embedded Systems</span>
-    <span class="chip yell">Industrial Automation</span>
-    <span class="chip ms">Machine Learning</span>
-    <span class="chip blue">Smart Manufacturing</span>
+    <span class="chip green">Industrial Automation</span>
+    <span class="chip yell">Machine Learning</span>
+    <span class="chip yell">Smart Manufacturing</span>
+    <span class="chip blue">Software Development</span>
   </div>
   <div class="actions fu d4">
     <a href="#projects" class="btn btn-ms">View projects</a>
@@ -285,12 +329,15 @@ html[data-theme="dark"] .si-badge{color:#66d9d9;}
   </div>
   <div class="exp-list stagger" id="exp-list">
     <div class="exp-row" data-cat="industry">
-      <div><span class="pill" style="background:var(--g-green-bg);color:#1a7a3c;">Now · 2025</span></div>
+      <div><span class="pill" style="background:var(--g-green-bg);color:#1a7a3c;">Aug 2025 · Now</span></div>
       <div>
         <div class="exp-role">Cybersecurity Advocate</div>
         <div class="exp-co">Honeywell HTCS</div>
-        <div class="exp-desc">Responsible of ensuring Secure Software Development Lifecycle (SSLDC) activities are performed in compliance with Honeywell and SBG policies, standards, processes, and procedures within the product release.</div>
-        <img class="media-img" src="MediaFiles/Honeywell.jpg" alt="Honeywell HTCS" onclick="openLightbox(this.src)"/>
+        <div class="exp-desc">Responsible for ensuring Secure Software Development Lifecycle (SSDLC) compliance across product releases while actively contributing to Software Development initiatives. Manages cross-platform quality assurance through Sanity Testing and comprehensive Regression Tests (Views and Functions) for iOS and Windows environments to guarantee robust, policy-compliant software delivery.</div>
+        <div class="honeywell-media media-grid">
+          <img class="media-img" src="MediaFiles/Honeywell.jpg" alt="Honeywell HTCS" onclick="openLightbox(this.src)"/>
+          <img class="media-img" src="MediaFiles/SDEToolDevelopment.jpg" alt="SDE Tool Development" onclick="openLightbox(this.src)"/>
+        </div>
       </div>
     </div>
     <div class="exp-row" data-cat="academic">
@@ -298,7 +345,7 @@ html[data-theme="dark"] .si-badge{color:#66d9d9;}
       <div>
         <div class="exp-role">Digital Twin Integration Engineer</div>
         <div class="exp-co">Siemens Digital Industries Software</div>
-        <div class="exp-desc">Designed and developed a Cyber-Physical Warehouse System with a synchronized Digital Twin for real-time monitoring, simulation, and process optimization.</div>
+        <div class="exp-desc">Designed and developed a Cyber-Physical Warehouse System featuring a Digital Twin synchronized via Node-RED and TIA Portal. The system integrated a ROS2-based AGV for autonomous navigation and utilized a multi-objective genetic algorithm for energy-efficient path planning. Built a full-stack IoT architecture to stream hardware telemetry to AWS serverless services and Siemens Insights Hub for real-time analytics and process optimization.</div>
         <!-- MediaFiles: Dashboard + HMI screenshots -->
         <div class="media-grid">
           <img src="MediaFiles/DashboardDigitaltwin.png" alt="Digital Twin Dashboard" onclick="openLightbox(this.src)"/>
@@ -311,9 +358,27 @@ html[data-theme="dark"] .si-badge{color:#66d9d9;}
       <div>
         <div class="exp-role">Digital Twin Developer</div>
         <div class="exp-co">Ford Motor Company</div>
-        <div class="exp-desc">Designed and implemented a Digital Twin for an Autonomous Integrated Manufacturing System, enabling predictive insights and remote process visibility on the production floor.</div>
+        <div class="exp-desc">Engineered a comprehensive improvement plan for vehicle final assembly using Virtual Commissioning and Digital Twin modeling. Integrated Vision-based verification (OCR) for VIN alignment and Pick-to-Light systems with real-time weight monitoring to eliminate assembly errors. Validated all logic and HMI systems through a robust simulation stack including Emulate3D, Studio 5000, and FactoryTalkView, ensuring 100% integration readiness for the production line.</div>
         <!-- MediaFiles: HMI screenshot (shared asset) -->
         <img class="media-img" src="MediaFiles/HMI_Digitaltwin.png" alt="Manufacturing System HMI" onclick="openLightbox(this.src)"/>
+      </div>
+    </div>
+    <!-- COMING SOON: OEE + Digital Twin project -->
+    <div class="coming-soon-row" data-cat="academic">
+      <div><span class="cs-pill"><span class="cs-dot"></span>In progress</span></div>
+      <div>
+        <div class="cs-badge"><span class="cs-dot"></span>Coming soon</div>
+        <div class="exp-role" style="margin-bottom:.4rem;">OEE Monitoring &amp; Digital Twin Simulation</div>
+        <div class="exp-co">Bachelor's Final Project · Siemens DISW </div>
+        <div class="cs-desc">Integrates a digital twin and real-time OEE monitoring using Siemens DISW such as Plant Simulation, Insights Hub, and Mendix to simulate, analyze, and optimize manufacturing processes for smarter, more efficient decision-making.</div>
+        <div class="cs-tags">
+          <span class="cs-tag">Plant Simulation</span>
+          <span class="cs-tag">Insights Hub</span>
+          <span class="cs-tag">Mendix</span>
+          <span class="cs-tag">Digital Twin</span>
+          <span class="cs-tag">OEE Monitoring</span>
+          <span class="cs-tag">Smart Manufacturing</span>
+        </div>
       </div>
     </div>
   </div>
@@ -375,7 +440,7 @@ html[data-theme="dark"] .si-badge{color:#66d9d9;}
         <div class="proj-desc">Live warehouse integrated with a Siemens digital twin for synchronized real-time monitoring and process optimization.</div>
         <div class="media-grid">
           <img src="MediaFiles/DashboardInsightsHub.jpg" alt="Dashboard Insights Hub" onclick="openLightbox(this.src)"/>
-          <img src="MediaFiles/NodeRedConnections.png" alt="Node-Red Connections" onclick="openLightbox(this.src)"/>
+          <img src="MediaFiles/IOT_Communication.png" alt="Node-Red Connections" onclick="openLightbox(this.src)"/>
         </div>
       </div>
     </div>
@@ -427,6 +492,31 @@ html[data-theme="dark"] .si-badge{color:#66d9d9;}
         <div class="proj-desc">Member of the Aeronautical Engineering Student Society (SAIA) and the university’s electric race car team. Contributed to systems integration, electrical design, and testing, applying engineering principles to both aeronautical projects and electric vehicles.</div>
         <img class="media-img" src="MediaFiles/SAIA.jpg" alt="SAIA aeronautical student society" onclick="openLightbox(this.src)"/>
         <video class="media-video" src="MediaFiles/SAIA_Airplane.mp4" alt="SAIA airplane design" controls muted playsinline></video>
+      </div>
+    </div>
+
+    <!-- COMING SOON: OEE + Digital Twin -->
+    <div class="proj-card cs-card">
+      <div class="proj-bar" style="background:var(--si-teal);"></div>
+      <div class="proj-body" style="position:relative;z-index:1;">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:.85rem;">
+          <span class="proj-tag" style="background:var(--si-teal-bg);color:var(--si-teal);margin-bottom:0;">Siemens · Smart Manufacturing</span>
+          <span class="cs-badge" style="margin-bottom:0;"><span class="cs-dot"></span>In progress</span>
+        </div>
+        <div class="proj-title">OEE Monitoring &amp; Digital Twin Simulation</div>
+        <div class="cs-desc" style="font-size:13px;">Integrates a digital twin and real-time OEE monitoring using Siemens SW — Plant Simulation, Insights Hub, and Mendix — to simulate, analyze, and optimize manufacturing processes for smarter, more efficient decision-making.</div>
+        <div class="cs-tags">
+          <span class="cs-tag">Plant Simulation</span>
+          <span class="cs-tag">Insights Hub</span>
+          <span class="cs-tag">Mendix</span>
+          <span class="cs-tag">Digital Twin</span>
+          <span class="cs-tag">OEE</span>
+          <span class="cs-tag">Smart Mfg.</span>
+        </div>
+        <div style="margin-top:1rem;background:var(--si-teal-bg);border-radius:var(--r-sm);height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border:1.5px dashed rgba(0,153,153,.35);">
+          <span style="font-size:1.5rem;">⚙️</span>
+          <span style="font-size:11px;font-weight:700;color:var(--si-teal);letter-spacing:.06em;text-transform:uppercase;">Media coming soon</span>
+        </div>
       </div>
     </div>
 
@@ -638,7 +728,7 @@ document.addEventListener('keydown', function(e){
       logoUrl:'https://humanfocus.co.uk/wp-content/uploads/What-Are-SMART-Goals.jpg' },
 
     /* Cybersecurity */
-    { label:'Software Development Life Cycle',  cat:'cyber', color:'#EA4335', bg:'#EA4335',
+    { label:'SSDLC',  cat:'cyber', color:'#EA4335', bg:'#EA4335',
       logoUrl:'https://cdn-icons-png.flaticon.com/512/3696/3696975.png' },
     { label:'PSJira',cat:'cyber',color:'#EA4335',bg:'#0078D4',
       logoUrl:'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Jira_Logo.svg/1280px-Jira_Logo.svg.png' },
